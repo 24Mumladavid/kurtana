@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurtana — Minesweeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="fireworks"></canvas>
+
+    <div class="container">
+        <header>
+            <h1>💣 KURTANA</h1>
+            <span class="tagline">MINESWEEPER</span>
+        </header>
+
+        <div class="diff-bar">
+            <button class="diff-btn" data-diff="easy">EASY</button>
+            <button class="diff-btn" data-diff="medium">MEDIUM</button>
+            <button class="diff-btn active" data-diff="hard">EXPERT</button>
+            <button class="diff-btn hell-btn" data-diff="hell">👿 HELL</button>
+        </div>
+
+        <div id="hell-warning" class="hell-warning hidden">
+            ☠ HELL MODE — 2% WIN RATE — GOOD LUCK ☠
+        </div>
+
+        <div class="panel">
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-icon">💣</span>
+                    <span id="mines-left">099</span>
+                </div>
+                <button id="new-game" title="New Game">⚡ NEW</button>
+                <div class="hud-item right">
+                    <span class="hud-icon">⏱</span>
+                    <span id="timer">000</span>
+                </div>
+            </div>
+            <div id="board"></div>
+        </div>
+
+        <section class="leaderboard">
+            <h2>🏆 LEADERBOARD</h2>
+            <div class="lb-tabs">
+                <button class="lb-tab active" data-diff="easy">EASY</button>
+                <button class="lb-tab" data-diff="medium">MEDIUM</button>
+                <button class="lb-tab" data-diff="hard">EXPERT</button>
+                <button class="lb-tab hell-btn" data-diff="hell">HELL</button>
+            </div>
+            <ul id="lb-list"></ul>
+        </section>
+
+        <footer class="footer">
+            LMB: Reveal &nbsp;|&nbsp; RMB: Flag / ? &nbsp;|&nbsp; Double-click: Chord reveal
+        </footer>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-box win-box">
+            <div class="trophy-wrap">
+                <span class="trophy-icon">🏆</span>
+            </div>
+            <div id="winner-display" class="winner-display hidden"></div>
+            <h2 class="modal-title">VICTORY!</h2>
+            <p id="win-time-label" class="modal-sub"></p>
+            <div id="name-section" class="name-section">
+                <input id="name-input" type="text" placeholder="ENTER YOUR NAME..."
+                       maxlength="20" autocomplete="off" spellcheck="false">
+                <button id="save-btn">SAVE TO LEADERBOARD</button>
+            </div>
+            <button id="win-again-btn" class="secondary-btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- Lose Modal -->
+    <div id="lose-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-box lose-box">
+            <span class="bomb-icon">💥</span>
+            <h2 class="modal-title lose-title">GAME OVER</h2>
+            <p class="modal-sub">You detonated a mine.</p>
+            <button id="retry-btn">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
